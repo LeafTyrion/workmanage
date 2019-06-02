@@ -1,0 +1,13 @@
+GET http://localhost:8080/api/tasks
+
+###
+GET http://localhost:8080/api/users/10
+
+###
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "http",
+  "detail": "testhttp"
+}
