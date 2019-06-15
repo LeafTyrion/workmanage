@@ -12,14 +12,25 @@ import java.util.List;
 @Transactional
 public class TaskService {
 
-    private final TaskRepository taskRepository;
-
     @Autowired
-    public TaskService(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
-    }
-//    查找全部任务
-    public List<Task> taskList(){
+    private TaskRepository taskRepository;
+
+    //    查找全部任务
+    public List<Task> getTaskList() {
         return taskRepository.findAll();
     }
+    //    按照ID查询任务
+    public Task getTask(int id) {
+        return taskRepository.find(id);
+    }
+    //    新增任务
+    public void addTask(Task task) {
+        taskRepository.save(task);
+    }
+    //    删除任务
+    public void deleteTask(Task task) {
+        taskRepository.delete(task);
+    }
+
 }
+

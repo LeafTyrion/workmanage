@@ -2,6 +2,13 @@ package com.nefu.workmanage.repository;
 
 import com.nefu.workmanage.entity.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-public interface TaskRepository extends JpaRepository<Task,Integer>{
+public interface TaskRepository extends JpaRepository<Task, Integer> {
+
+    //    按照id查询任务
+    @Query("select t from Task t where t.id=:id")
+    Task find(@Param("id") int id);
+
 }

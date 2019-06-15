@@ -1,13 +1,54 @@
 GET http://localhost:8080/api/tasks
 
 ###
-GET http://localhost:8080/api/users/10
+GET http://localhost:8080/api/tasks/2
 
 ###
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/manager/addTask
 Content-Type: application/json
 
 {
-  "name": "http",
-  "detail": "testhttp"
+  "name": "fuck01",
+  "detail": "123",
+  "endTime": "2019-06-15T19:49:24.484886",
+  "startTime": "2019-06-15T19:49:24.484886"
 }
+
+###
+POST http://localhost:8080/api/manager/addTask
+Content-Type: application/json
+
+{
+  "id": 9,
+  "name": "fuck01",
+  "detail": "123",
+  "endTime": "2019-06-15T19:49:24.484886",
+  "startTime": "2019-06-15T19:49:24.484886"
+}
+
+###
+GET http://localhost:8080/api/userTask
+
+###
+POST http://localhost:8080/api/manager/reply
+Content-Type: application/json
+
+{
+  "id": 27,
+  "reply": "987123"
+}
+
+###
+POST http://localhost:8080/api/manager/addUserTask/6
+Content-Type: application/json
+
+[
+  {
+    "id": 1
+  },
+  {
+    "id": 2
+  }
+]
+
+
