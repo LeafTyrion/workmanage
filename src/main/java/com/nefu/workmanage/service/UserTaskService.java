@@ -41,9 +41,9 @@ public class UserTaskService {
     }
 
     //    删除指定用户任务
-    public void deleteUserTask(UserTask userTask) {
-        userTaskRepository.delete(userTask);
-    }
+//    public void deleteUserTask(UserTask userTask) {
+//        userTaskRepository.delete(userTask);
+//    }
 
     //    用户回复任务消息
     public void reply(UserTask userTask) {
@@ -54,7 +54,18 @@ public class UserTaskService {
         } else {
             userTask.setStatus(1);
         }
-        userTaskRepository.reply(userTask.getReply(), userTask.getStatus(),LocalDateTime.now(),userTask.getId());
+        userTaskRepository.reply(userTask.getReply(), userTask.getStatus(), LocalDateTime.now(), userTask.getId());
     }
 
+    //查询指定用户的所有任务
+    public List<UserTask> utList(int uid) {
+        List<UserTask> userTasks = userTaskRepository.findByUser(uid);
+        return userTasks;
+    }
+
+    //    查询指定任务的所有用户
+    public List<UserTask> tuList(int tid) {
+        List<UserTask> userTasks = userTaskRepository.findByTask(tid);
+        return userTasks;
+    }
 }

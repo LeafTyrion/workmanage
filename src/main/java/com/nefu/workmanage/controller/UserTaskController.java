@@ -25,7 +25,7 @@ public class UserTaskController {
         return Map.of("userTask", userTaskList);
     }
 
-    //    新建/更新用户任务信息
+    //    分配用户任务
     @PostMapping("/manager/addUserTask/{taskId}")
     public Map updateUserTask(@PathVariable int taskId, @RequestBody List<User> userList) {
         return userTaskService.addUserTask(taskId, userList);
@@ -39,5 +39,17 @@ public class UserTaskController {
 
     }
 
+    //    指定用户的所有任务
+    @GetMapping("/utList/{uid}")
+    public Map utList(@PathVariable int uid) {
+        List<UserTask> userTasks = userTaskService.utList(uid);
+        return Map.of("userTasks", userTasks);
+    }
 
+    //指定任务的所有用户
+    @GetMapping("/tuList/{tid}")
+    public Map tuList(@PathVariable int tid) {
+        List<UserTask> userTasks = userTaskService.tuList(tid);
+        return Map.of("userTasks", userTasks);
+    }
 }
